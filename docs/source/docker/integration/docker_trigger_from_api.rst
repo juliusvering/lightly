@@ -119,7 +119,7 @@ And now we can schedule a new job.
           enable_training: false,
           pretagging: false,
           pretagging_debug: false,
-          method: 'coreset',
+          method: 'CORESET',
           stopping_condition: {
             n_samples: 0.1,
             min_distance: -1
