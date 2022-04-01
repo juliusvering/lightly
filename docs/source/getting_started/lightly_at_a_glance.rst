@@ -75,7 +75,7 @@ with the normalized temperature-scaled cross entropy loss and simple stochastic 
 
     # use a resnet backbone
     resnet = torchvision.models.resnet18()
-    resnet = nn.Sequential(*list(resnet.children())[:-1])
+    resnet = torch.nn.Sequential(*list(resnet.children())[:-1])
 
     # build a SimCLR model
     class SimCLR(torch.nn.Module):
@@ -112,8 +112,11 @@ Train the model for 10 epochs.
     for epoch in range(10):
         for (x0, x1), _, _ in dataloader:
             
-            x0 = x0.to(device)
-            x1 = x1.to(device)
+            # uncomment to perform computation on device;
+            # have to define device elsewhere
+            # (see PyTorch docs for details)
+            # x0 = x0.to(device)
+            # x1 = x1.to(device)
 
             z0 = model(x0)
             z1 = model(x1)
